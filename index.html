@@ -14,19 +14,19 @@ align-items: center;
 height: 100vh;
 }
 #atm {
-width: 300px;
-height: 400px;
+width: 450px;
+height: 600px;
 background-image: url("https://ie.wampi.ru/2023/08/07/IMG_9265.png");
-background-size: cover;
+background-size: contain;
 }
 #card {
-width: 80px;
-height: 50px;
+width: 120px;
+height: 75px;
 background-image: url("https://im.wampi.ru/2023/08/07/IMG_5505.png");
 background-size: cover;
 position: absolute;
-left: calc(50% - 40px);
-bottom: -50px;
+left: calc(50% - 60px);
+bottom: -75px;
 }
 </style>
 </head>
@@ -61,7 +61,186 @@ function dragEnd(e) {
 // Get the final position of the card
 var finalY = card.offsetTop;
 // Define a threshold for when the card is inserted into the ATM
-var thresholdY = document.getElementById("atm").offsetHeight / 2 - card.offsetHeight / 2;
+var thresholdY = document.getElementById("atm").offsetHeight / 2 - card.offsetHeight / 2 + document.getElementById("atm").offsetTop;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Check if the card is inserted into the ATM
 if (finalY <= thresholdY) {
 // Go to another page
@@ -75,101 +254,7 @@ card.style.transition = "top .5s ease-in-out";
 card.style.top = thresholdY + "px";
 // Show a message that says "Card inserted"
 alert("Card inserted");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 }
 
 </script>
