@@ -1,0 +1,470 @@
+<html>
+<head>
+<style>
+#atm {
+width: 300px;
+height: 400px;
+background-image: url("atm.png");
+background-size: cover;
+position: relative;
+}
+
+#card {
+width: 100px;
+height: 60px;
+background-image: url("card.png");
+background-size: cover;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%) rotate(-10deg);
+}
+
+</style>
+</head>
+<body>
+<div id="atm">
+<img id="card" draggable="false">
+</div>
+<script>
+// Get the card element
+var card = document.getElementById("card");
+
+// Add mouse event listeners
+card.addEventListener("mousedown", dragStart);
+card.addEventListener("mousemove", dragMove);
+card.addEventListener("mouseup", dragEnd);
+
+// Define variables for the initial position and offset
+var initX, initY, offsetX, offsetY;
+
+// Define a function for when the mouse is pressed on the card
+function dragStart(e) {
+// Prevent the default behavior of the browser
+e.preventDefault();
+
+// Get the initial position of the card
+initX = card.offsetLeft;
+initY = card.offsetTop;
+
+// Get the mouse position relative to the card
+offsetX = e.clientX - initX;
+offsetY = e.clientY - initY;
+
+}
+
+// Define a function for when the mouse is moved on the card
+function dragMove(e) {
+// Prevent the default behavior of the browser
+e.preventDefault();
+
+// Calculate the new position of the card
+var newX = e.clientX - offsetX;
+var newY = e.clientY - offsetY;
+
+// Set the new position of the card
+card.style.left = newX + "px";
+card.style.top = newY + "px";
+
+}
+
+// Define a function for when the mouse is released on the card
+function dragEnd(e) {
+
+// Get the final position of the card
+var finalX = card.offsetLeft;
+var finalY = card.offsetTop;
+
+// Define a threshold for when the card is inserted into the ATM
+var thresholdX = document.getElementById("atm").offsetWidth - card.offsetWidth;
+var thresholdY = document.getElementById("atm").offsetHeight / 2;
+
+// Check if the card is inserted into the ATM
+if (finalX >= thresholdX && finalY <= thresholdY) {
+// Go to another page
+window.location.href = "https://www.bing.com";
+
+// Remove the mouse event listeners
+card.removeEventListener("mousedown", dragStart);
+card.removeEventListener("mousemove", dragMove);
+card.removeEventListener("mouseup", dragEnd);
+
+// Rotate and slide the card into the ATM
+card.style.transform = "rotate(0deg)";
+card.style.transition = "left .5s ease-in-out";
+card.style.left = thresholdX + "px";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Show a message that says "Card inserted"
+alert("Card inserted");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+}
+
+</script>
+</body>
+</html>
