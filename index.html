@@ -1,339 +1,80 @@
 <html>
 <head>
 <style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background-color: #000;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
 #atm {
-width: 500px;
-height: 300px;
+width: 300px;
+height: 400px;
 background-image: url("https://ie.wampi.ru/2023/08/07/IMG_9265.png");
 background-size: cover;
-position: relative;
 }
-
 #card {
 width: 80px;
 height: 50px;
 background-image: url("https://im.wampi.ru/2023/08/07/IMG_5505.png");
 background-size: cover;
 position: absolute;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%) rotate(-10deg);
+left: calc(50% - 40px);
+bottom: -50px;
 }
-
 </style>
 </head>
 <body>
-<div id="atm">
+<div id="atm"></div>
 <img id="card" draggable="false">
-</div>
 <script>
 // Get the card element
 var card = document.getElementById("card");
-
-// Add mouse event listeners
-card.addEventListener("mousedown", dragStart);
-card.addEventListener("mousemove", dragMove);
-card.addEventListener("mouseup", dragEnd);
-
+// Add touch event listeners
+card.addEventListener("touchstart", dragStart);
+card.addEventListener("touchmove", dragMove);
+card.addEventListener("touchend", dragEnd);
 // Define variables for the initial position and offset
-var initX, initY, offsetX, offsetY;
-
-// Define a function for when the mouse is pressed on the card
+var initY, offsetY;
+// Define a function for when the finger is pressed on the card
 function dragStart(e) {
-// Prevent the default behavior of the browser
-e.preventDefault();
-
 // Get the initial position of the card
-initX = card.offsetLeft;
 initY = card.offsetTop;
-
-// Get the mouse position relative to the card
-offsetX = e.clientX - initX;
-offsetY = e.clientY - initY;
-
+// Get the finger position relative to the card
+offsetY = e.touches[0].clientY - initY;
 }
-
-// Define a function for when the mouse is moved on the card
+// Define a function for when the finger is moved on the card
 function dragMove(e) {
-// Prevent the default behavior of the browser
-e.preventDefault();
-
 // Calculate the new position of the card
-var newX = e.clientX - offsetX;
-var newY = e.clientY - offsetY;
-
+var newY = e.touches[0].clientY - offsetY;
 // Set the new position of the card
-card.style.left = newX + "px";
 card.style.top = newY + "px";
-
 }
-
-// Define a function for when the mouse is released on the card
+// Define a function for when the finger is released on the card
 function dragEnd(e) {
-
 // Get the final position of the card
-var finalX = card.offsetLeft;
 var finalY = card.offsetTop;
-
 // Define a threshold for when the card is inserted into the ATM
-var thresholdX = document.getElementById("atm").offsetWidth - card.offsetWidth - 10;
 var thresholdY = document.getElementById("atm").offsetHeight / 2 - card.offsetHeight / 2;
-
 // Check if the card is inserted into the ATM
-if (finalX >= thresholdX && finalY <= thresholdY) {
+if (finalY <= thresholdY) {
 // Go to another page
 window.location.href = "https://www.bing.com";
-
-// Remove the mouse event listeners
-card.removeEventListener("mousedown", dragStart);
-card.removeEventListener("mousemove", dragMove);
-card.removeEventListener("mouseup", dragEnd);
-
-// Rotate and slide the card into the ATM
-card.style.transform = "rotate(0deg)";
-card.style.transition = "left .5s ease-in-out";
-card.style.left = thresholdX + "px";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Remove the touch event listeners
+card.removeEventListener("touchstart", dragStart);
+card.removeEventListener("touchmove", dragMove);
+card.removeEventListener("touchend", dragEnd);
+// Slide the card into the ATM
+card.style.transition = "top .5s ease-in-out";
+card.style.top = thresholdY + "px";
 // Show a message that says "Card inserted"
 alert("Card inserted");
-
-
-
-
-
-
-
-
 
 
 
