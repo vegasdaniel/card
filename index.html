@@ -83,19 +83,17 @@
     / Добавляем стили для мобильных устройств в вертикальной ориентации /
     @media (max-width: 600px) and (orientation: portrait) {
       .button {
-        padding: 0; / Удаляем отступы /
         height: 180px; / Увеличиваем высоту кнопки в 4 раза /
-        width: 120px; / Увеличиваем ширину кнопки в 4 раза /
+        padding: 0; / Удаляем отступы /
+      }
+      
+      .button span {
         font-size: 30px; / Увеличиваем размер шрифта /
       }
     }
   </style>
 </head>
 <body>
-  <a href="https://ya.ru" class="button pulse">Начать</a>
-</body>
-</html>
-<body>
-  <a href="https://ya.ru" class="button pulse">Начать</a>
+  <a href="https://ya.ru" class="button pulse"><span>Начать</span></a>
 </body>
 </html>
