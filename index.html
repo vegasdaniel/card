@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
@@ -29,10 +26,10 @@
       animation: burn 1000ms ease-out forwards;
     }
 
-    a::before {
+    a::before,
+    a::after {
       content: '';
       position: absolute;
-      left: 40px;
       width: 100px;
       height: 40px;
       background: rgba(255, 230, 110, 1);
@@ -40,15 +37,12 @@
       animation: flare 1000ms ease-out forwards;
     }
 
+    a::before {
+      left: 40px;
+    }
+
     a::after {
-      content: '';
-      position: absolute;
       right: 40px;
-      width: 100px;
-      height: 40px;
-      background: rgba(255, 230, 110, 1);
-      border-radius: 100%;
-      animation: flare 1000ms ease-out forwards;
     }
 
     @keyframes flare {
@@ -79,9 +73,8 @@
       }
     }
   </style>
-  <title>Combined HTML Code</title>
 </head>
 <body>
-  <a href="https://www.bing.com">GO</a>
+  <a>🔥</a>
 </body>
 </html>
