@@ -1,262 +1,83 @@
 <html>
 <head>
+a 🔥
 <style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
 body {
-background-color: #000;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#atm {
-width: 450px;
-height: 600px;
-background-image: url("https://ie.wampi.ru/2023/08/07/IMG_9265.png");
-background-size: contain;
+
+a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  background: #fff;
+  border-radius: 999px;
+  
+  
+  
+  &:hover {
+    // box-shadow: 0 0 20px 10px rgba(230, 30, 10, 0.6);
+    animation: burn 1000ms ease-out forwards;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 40px;
+      width: 100px;
+      height: 40px;
+      background: rgba(255, 230, 110, 1);
+      border-radius: 100%;
+      animation: flare 1000ms ease-out forwards;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 40px;
+      width: 100px;
+      height: 40px;
+      background: rgba(255, 230, 110, 1);
+      border-radius: 100%;
+      animation: flare 1000ms ease-out forwards;
+    }
+  }
 }
-#card {
-width: 120px;
-height: 75px;
-background-image: url("https://im.wampi.ru/2023/08/07/IMG_5505.png");
-background-size: cover;
-position: absolute;
-left: calc(50% - 60px);
-bottom: -75px;
+
+@keyframes flare {
+  100% {
+    transform: translateY(-20px) scale(1.5);
+    filter: blur(10px);
+    opacity: 0;
+  }
 }
-</style>
+
+@keyframes burn {
+  0% {
+    color: rgba(255, 130, 110, 1);
+    background: rgba(255, 230, 110, 1);
+    box-shadow:
+      0 0 5px 0 rgba(200, 0, 10, 1),
+      0 0 5px 0 rgba(230, 30, 10, 0.8),
+      0 0 5px 0 rgba(230, 230, 10, 0.6);
+  }
+  
+  100% {
+    color: rgba(0, 0, 0, 1);
+    background: rgba(255, 255, 255, 1);
+    box-shadow:
+      0 -35px 40px 30px rgba(255, 130, 10, 0),
+      0 -30px 30px 10px rgba(230, 30, 10, 0),
+      0 -20px 10px 0 rgba(255, 255, 10, 0);
+  }
+}
 </head>
-<body>
-<div id="atm"></div>
-<img id="card" draggable="false">
-<script>
-// Get the card element
-var card = document.getElementById("card");
-// Add touch event listeners
-card.addEventListener("touchstart", dragStart);
-card.addEventListener("touchmove", dragMove);
-card.addEventListener("touchend", dragEnd);
-// Define variables for the initial position and offset
-var initY, offsetY;
-// Define a function for when the finger is pressed on the card
-function dragStart(e) {
-// Get the initial position of the card
-initY = card.offsetTop;
-// Get the finger position relative to the card
-offsetY = e.touches[0].clientY - initY;
-}
-// Define a function for when the finger is moved on the card
-function dragMove(e) {
-// Calculate the new position of the card
-var newY = e.touches[0].clientY - offsetY;
-// Set the new position of the card
-card.style.top = newY + "px";
-}
-// Define a function for when the finger is released on the card
-function dragEnd(e) {
-// Get the final position of the card
-var finalY = card.offsetTop;
-// Define a threshold for when the card is inserted into the ATM
-var thresholdY = document.getElementById("atm").offsetHeight / 2 - card.offsetHeight / 2 + document.getElementById("atm").offsetTop;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Check if the card is inserted into the ATM
-if (finalY <= thresholdY) {
-// Go to another page
-window.location.href = "https://www.bing.com";
-// Remove the touch event listeners
-card.removeEventListener("touchstart", dragStart);
-card.removeEventListener("touchmove", dragMove);
-card.removeEventListener("touchend", dragEnd);
-// Slide the card into the ATM
-card.style.transition = "top .5s ease-in-out";
-card.style.top = thresholdY + "px";
-// Show a message that says "Card inserted"
-alert("Card inserted");
-}
-}
-
-</script>
-</body>
+</style>
 </html>
