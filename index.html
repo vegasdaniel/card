@@ -19,7 +19,7 @@
     .button {
       display: inline-flex;
       align-items: center;
-      background: #8BC34A; /* новый цвет кнопки */
+      background: #8BC34A;
       box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
       border-radius: 5px;
       height: 45px;
@@ -30,17 +30,6 @@
       text-decoration: none;
       transition: background .3s, transform .3s, box-shadow .3s;
       will-change: transform;
-      
-      &:hover {
-        background: darken(#8BC34A, 10%);
-        box-shadow: 0 4px 17px rgba(0,0,0,0.2);
-        transform: translate3d(0, -2px, 0);
-      }
-      
-      &:active {
-        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
-        transform: translate3d(0, 1px, 0);
-      }
     }
 
     .pulse {
@@ -90,9 +79,18 @@
         opacity: 0;
       }
     }
+
+    /* Добавляем стили для мобильных устройств в вертикальной ориентации */
+    @media (max-width: 600px) and (orientation: portrait) {
+      .button {
+        padding: 0 0.5cm; /* Отступы по бокам по полсантиметра */
+        width: auto; /* Автоматическая ширина, чтобы кнопка растягивалась в зависимости от текста */
+        justify-content: center; /* Центрирование текста */
+      }
+    }
   </style>
 </head>
 <body>
-  <a href="https://ya.ru" class="button pulse">Subscribe</a>
+  <a href="https://ya.ru" class="button pulse">Начать</a>
 </body>
 </html>
