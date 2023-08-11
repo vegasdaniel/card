@@ -18,10 +18,19 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background-image: linear-gradient(rgba(225, 225, 225, 0.1), rgba(0, 0, 0, 1)),
-        url("https://bcn-a.akamaihd.net/img/blogs/blog-28.03.2018-earnfree-3.jpg");
+      background: linear-gradient(rgba(225, 225, 225, 0.1), rgba(0, 0, 0, 1)), url("https://bcn-a.akamaihd.net/img/blogs/blog-28.03.2018-earnfree-3.jpg");
       background-attachment: fixed;
       background-size: cover;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
 
     .intro {
@@ -86,13 +95,13 @@
 
     @media screen and (max-width: 600px) {
       .intro {
-        font-size: 18px;
+        font-size: 36px; /* Изменено на 36px */
         margin-top: 5vh;
       }
 
       .button {
-        padding: 15px 60px;
-        font-size: 20px;
+        padding: 40px 160px; /* Изменено на 40px 160px */
+        font-size: 48px; /* Изменено на 48px */
         margin-bottom: 5vh;
       }
     }
