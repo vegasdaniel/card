@@ -2,129 +2,129 @@
 <html>
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-		rel="stylesheet">
-	<style>
-		html,
-		body {
-			width: 100%;
-			height: 100%;
-			padding: 0;
-			margin: 0;
-			font-family: 'Montserrat', sans-serif;
-		}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-		body {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			background-image: linear-gradient(rgba(225, 225, 225, 0.1), rgba(0, 0, 0, 1)), url("https://bcn-a.akamaihd.net/img/blogs/blog-28.03.2018-earnfree-3.jpg");
-			background-attachment: fixed;
-			background-size: 200%;
-		}
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: linear-gradient(rgba(225, 225, 225, 0.1), rgba(0, 0, 0, 1)), url("https://bcn-a.akamaihd.net/img/blogs/blog-28.03.2018-earnfree-3.jpg");
+      background-attachment: fixed;
+      background-size: 200%;
+    }
 
-		.intro,
-		.center-element,
-		.button {
-			opacity: 0;
-			animation: fadeIn 1s forwards;
-		}
+    .intro,
+    .center-element,
+    .button {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      font-style: normal; /* Новое правило: задает обычное начертание шрифта */
+    }
 
-		.intro {
-			text-align: center;
-			color: #ffffff;
-			font-size: 22px;
-			margin-top: 10vh;
-			padding: 20px;
-			border-radius: 10px;
-			overflow-wrap: break-word;
-			max-width: 90%;
-			background: rgba(0, 0, 0, 0.5);
-			line-height: 1.4;
-		}
+    .intro {
+      text-align: center;
+      color: #ffffff;
+      font-size: 22px;
+      margin-top: 10vh;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-wrap: break-word;
+      max-width: 90%;
+      background: rgba(0, 0, 0, 0.5);
+      line-height: 1.4;
+    }
 
-		.center-element {
-			height: 3vh;
-			width: 100%;
-		}
+    .center-element {
+      height: 3vh;
+      width: 100%;
+    }
 
-		.button {
-			padding: 20px 80px;
-			background: #3E64FF;
-			color: #ffffff;
-			text-decoration: none;
-			font-size: 24px;
-			font-weight: 600;
-			border-radius: 10px;
-			position: relative;
-			overflow-x: hidden;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-bottom: 10vh;
-		}
+    .button {
+      padding: 20px 80px;
+      background: #3E64FF;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 600;
+      border-radius: 10px;
+      position: relative;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10vh;
+    }
 
-		.button .flare {
-			position: absolute;
-			top: 0;
-			height: 100%;
-			width: 45px;
-			transform: skewX(-45deg);
-			animation: flareAnimation 3s infinite linear;
-			left: -150%;
-			background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
-		}
+    .button .flare {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 45px;
+      transform: skewX(-45deg);
+      animation: flareAnimation 3s infinite linear;
+      left: -150%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+    }
 
-		.button a {
-			color: #ffffff;
-			text-decoration: none;
-		}
+    .button a {
+      color: #ffffff;
+      text-decoration: none;
+    }
 
-		@keyframes fadeIn {
-			0% {
-				opacity: 0;
-			}
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
 
-			100% {
-				opacity: 1;
-			}
-		}
+      100% {
+        opacity: 1;
+      }
+    }
 
-		@keyframes flareAnimation {
-			0% {
-				left: -150%;
-			}
+    @keyframes flareAnimation {
+      0% {
+        left: -150%;
+      }
 
-			100% {
-				left: 150%;
-			}
-		}
+      100% {
+        left: 150%;
+      }
+    }
 
-	/* Медиа-запросы для мобильной версии */
-	@media (max-width: 768px) {
-	.intro {
-	max-width: 80%; /* Новое правило: задает максимальную ширину в 80% */
-	font-size: 18px;
-	}
-	
-	.button {
-	max-width: 80%; /* Новое правило: задает максимальную ширину в 80% */
-	font-size: 20px;
-	}
-	}
-	
-	</style>
+    /* Медиа-запросы для мобильной версии */
+    @media (max-width: 768px) {
+      .intro {
+        max-width: 80%; /* Новое правило: задает максимальную ширину в 80% */
+        font-size: 18px;
+      }
+
+      .button {
+        max-width: 80%; /* Новое правило: задает максимальную ширину в 80% */
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-	<div class="intro">Добро пожаловать!<br><br>Жми на кнопку ниже, чтобы продолжить:</div>
-		<div class="center-element"></div>
-		<div class="button">
-			<span class="flare"></span>
-			<a href="https://google.com/" style="text-decoration: none;">ПЕРЕЙТИ</a>
-		</div>
+  <div class="intro">Добро пожаловать!<br><br>Жми на кнопку ниже, чтобы продолжить:</div>
+  <div class="center-element"></div>
+  <div class="button">
+    <span class="flare"></span>
+    <a href="https://google.com/" style="text-decoration: none;">ПЕРЕЙТИ</a>
+  </div>
 </body>
 
 </html>
