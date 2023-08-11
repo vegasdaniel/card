@@ -42,6 +42,7 @@
       max-width: 90%;
       background: rgba(0, 0, 0, 0.5);
       line-height: 1.4;
+      animation-delay: 0.5s; /* Задержка появления */
     }
 
     .center-element {
@@ -63,6 +64,7 @@
       flex-direction: column;
       align-items: center;
       margin-bottom: 10vh;
+      animation-delay: 1.1s; /* Задержка появления */
     }
 
     .button .flare {
