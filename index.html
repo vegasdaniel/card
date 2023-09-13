@@ -1,6 +1,13 @@
 <html>
 <script>
-window.location.replace("intent://www.instagram.com/insta.rubl#Intent;package=com.instagram.android;scheme=https;end
-");
+var destination = "instagram://user?username={USERNAME}"; 
+if( navigator.userAgent.match(/Android/i) ) {
+  // use Android's redirect
+  document.location = destination;   
+}   
+else {
+  // use iOS redirect
+  window.location.replace( destination );
+}
 </script>
 </html>
